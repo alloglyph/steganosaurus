@@ -1,0 +1,40 @@
+#meta-composer {
+  width: auto;
+}
+
+#meta-composer, #plaintext-composer {
+  clear: both;
+  float: left;
+}
+
+#stegotext-composer {
+  clear: right;
+  float: left;
+}
+
+#stegotext-display {
+  clear: both;
+  float: right;
+}
+
+#plaintext-composer, #stegotext-composer, #stegotext-display {
+  font-family: monospace;
+  width: 500px;
+  height: auto;
+  margin: 20px;
+  padding: 5px;
+  border: solid 2px black;
+  color: black;
+}
+
+#stegotext-display {
+  color: red;
+}
+
+.match {
+  color: blue;
+}
+
+.miss {
+  color: red;
+}
