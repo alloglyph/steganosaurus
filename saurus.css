@@ -2,7 +2,7 @@
   width: auto;
 }
 
-#meta-composer, #plaintext-composer {
+#meta-composer, #plaintext-composer, #metadata {
   clear: both;
   float: left;
 }
@@ -13,11 +13,11 @@
 }
 
 #stegotext-display {
-  clear: both;
-  float: right;
+  clear: right;
+  float: left;
 }
 
-#plaintext-composer, #stegotext-composer, #stegotext-display {
+#metadata, #plaintext-composer, #stegotext-composer, #stegotext-display {
   font-family: monospace;
   width: 500px;
   height: auto;

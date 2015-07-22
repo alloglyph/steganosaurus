@@ -1,5 +1,5 @@
 function formatText(text) {
-  var words = text.split(" ");
+  var words = text.trim().split(" ");
   const plaintext = document.getElementById('plaintext-composer').textContent.toLocaleLowerCase().replace(/[^a-z]/g, '');
   const codepoints = plaintext.split("").map(function (char) { return (char.charCodeAt(0) - 97); });
   var numbers = []
@@ -23,13 +23,15 @@ function formatText(text) {
     }
   }
 
-  if (words.length < numbers.length) {
-    formattedWords.push("  " + (numbers.length - words.length));
+  if (words.length <= numbers.length) {
+    document.getElementById('metadata').innerHTML = "Words remaining: " + (numbers.length - words.length);
   }
   return formattedWords.join(" ");
 }
 
+function updateDisplay() {
+  document.getElementById('stegotext-display').innerHTML = formatText(document.getElementById('stegotext-composer').textContent)
+}
 
-document.getElementById('stegotext-composer').addEventListener('input', function(event) {
-  document.getElementById('stegotext-display').innerHTML = formatText(event.target.textContent)
-});
+document.getElementById('stegotext-composer').addEventListener('input', updateDisplay);
+document.getElementById('plaintext-composer').addEventListener('input', updateDisplay);
