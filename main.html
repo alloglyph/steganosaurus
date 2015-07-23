@@ -10,6 +10,19 @@
       <div id='stegotext-composer' contenteditable='true'>
       </div>
       <div id='metadata'>
+        <form>
+          <p><label for='word-count'>words remaining:</label>
+            <input type='text' id='word-count' />
+          </p>
+          <p>
+            <label for='algorithm'>algorithm:</label>
+            <select id='algorithm' name='algorithm'>
+              <option value='length-mod-2' selected>length % 2</option>
+              <option value='length-mod-3'>length % 3</option>
+              <option value='blue-lotus'>blue lotus</option>
+            <select>
+          </p>
+        </form>
       </div>
       <div id='stegotext-display'>
       </div>

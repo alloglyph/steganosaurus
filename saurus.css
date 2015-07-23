@@ -38,3 +38,5 @@
 .miss {
   color: red;
 }
+
+#word-count { border: none; }
