@@ -53,17 +53,20 @@ function moduloN(base, text) {
     return listOne.concat(listTwo);
   });
 
-  const formattedWords = [];
-  for (i=0; i<Math.min(words.length, numbers.length); i++) {
-    var word = words[i]
+  const formattedWords = ['['];
+  for (wordNumber = 0; wordNumber < Math.min(words.length, numbers.length); wordNumber++) {
+    var word = words[wordNumber]
     var bareword = word.toLocaleLowerCase().replace(/[^a-z]/g, '')
-    if ((bareword.length % base) == numbers[i]) {
+    if ((bareword.length % base) == numbers[wordNumber]) {
       formattedWords.push("<span class='match'>" + word + "</span>");
     } else {
       formattedWords.push("<span class='miss'>" + word + "</span>");
     }
-    if (!((i + 1) % maxPower)) {
-      formattedWords.push("||");
+    if ((wordNumber + 1) == numbers.length) {
+      formattedWords.push("]")
+    }
+    else if (!((wordNumber + 1) % maxPower)) {
+      formattedWords.push("|");
     }
   }
 
