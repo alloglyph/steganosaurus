@@ -42,10 +42,10 @@ function moduloN(base, text) {
   const words = text.trim().split(" ");
   const plaintext = document.getElementById('plaintext-composer').textContent.toLocaleLowerCase().replace(/[^a-z]/g, '');
   const codepoints = plaintext.split("").map(function (char) { return (char.charCodeAt(0) - 97); });
-  const maxPower = Math.ceil(Math.log(26) / Math.log(base));
+  const numDigits = Math.ceil(Math.log(26) / Math.log(base)) + 1;
   const numbers = codepoints.map(function (codepoint) {
     var number = decomposeToBase(base, codepoint);
-    while (number.length < maxPower) {
+    while (number.length < (numDigits)) {
       number = [0].concat(number);
     }
     return number;
@@ -65,7 +65,7 @@ function moduloN(base, text) {
     if ((wordNumber + 1) == numbers.length) {
       formattedWords.push("]")
     }
-    else if (!((wordNumber + 1) % maxPower)) {
+    else if (!((wordNumber + 1) % numDigits)) {
       formattedWords.push("|");
     }
   }
